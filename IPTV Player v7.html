@@ -1007,324 +1007,6 @@
       background: var(--primary-color);
     }
     
-    /* Channel Categories Sidebar - Layout Otimizado */
-    .channels-layout {
-      display: flex;
-      height: calc(100vh - 310px);
-      max-height: calc(100vh - 310px);
-      margin: 0;
-      padding: 0;
-      gap: 0;
-      overflow: hidden;
-      position: fixed;
-      top: 310px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-    
-    .channel-categories-sidebar {
-      width: 30%;
-      min-width: 200px;
-      max-width: 300px;
-      background: var(--bg-quaternary);
-      border-right: 1px solid var(--border-color);
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      height: 100%;
-      max-height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    
-    .categories-header {
-      padding: 1rem;
-      border-bottom: 1px solid var(--border-color);
-      background: var(--bg-tertiary);
-      flex-shrink: 0;
-      margin: 0;
-      text-align: left;
-    }
-    
-    .categories-header h5 {
-      margin: 0;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      text-align: left;
-    }
-    
-    .categories-list {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 0.5rem;
-      margin: 0;
-      height: calc(100% - 60px);
-      max-height: calc(100% - 60px);
-      overscroll-behavior: contain;
-      scroll-behavior: smooth;
-      position: relative;
-    }
-    
-    .categories-list::-webkit-scrollbar {
-      width: 6px;
-    }
-    
-    .categories-list::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    
-    .categories-list::-webkit-scrollbar-thumb {
-      background: var(--border-color);
-      border-radius: 3px;
-    }
-    
-    .category-item {
-      display: flex;
-      width: 100%;
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      padding: 0.75rem;
-      margin: 0 0 0.25rem 0;
-      border-radius: 0.5rem;
-      text-align: left;
-      justify-content: flex-start;
-      align-items: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.85rem;
-      font-weight: 500;
-      line-height: 1.2;
-    }
-    
-    .category-item:hover {
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-    }
-    
-    .category-item.active {
-      background: var(--primary-color);
-      color: white;
-    }
-    
-    .channel-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      max-height: 100%;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Playing indicator for channels */
-    .item-card.playing {
-      border: 2px solid var(--primary-color);
-      box-shadow: 0 0 15px rgba(var(--primary-color-rgb), 0.3);
-    }
-    
-    .item-card.playing::after {
-      content: "TOCANDO";
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: var(--primary-color);
-      color: white;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 0.7rem;
-      font-weight: bold;
-      animation: pulse 2s infinite;
-    }
-    
-    /* Video player orientation fix */
-    @media (orientation: landscape) and (max-height: 480px) {
-      body, html {
-        position: relative !important;
-        height: auto !important;
-        max-height: none !important;
-      }
-      
-      #root {
-        position: relative !important;
-        height: auto !important;
-        max-height: none !important;
-        overflow: visible !important;
-      }
-      
-      .channels-layout {
-        position: relative !important;
-        top: auto !important;
-        height: calc(100vh - 120px) !important;
-        max-height: calc(100vh - 120px) !important;
-        background: var(--bg-primary) !important;
-      }
-      
-      .app-header, .video-player-container, .navigation-container {
-        position: relative !important;
-        top: auto !important;
-        z-index: auto !important;
-      }
-      
-      .channel-content {
-        background: var(--bg-primary) !important;
-      }
-    }
-
-    /* Remove all dark margins and backgrounds */
-    body, html {
-      background: var(--bg-primary) !important;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      height: 100vh;
-      max-height: 100vh;
-      position: fixed;
-      width: 100%;
-    }
-    
-    #root {
-      height: 100vh;
-      max-height: 100vh;
-      overflow: hidden;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-    }
-    
-    .channels-layout, 
-    .channel-categories-sidebar,
-    .channel-content,
-    .categories-list,
-    .content-list {
-      background: var(--bg-primary) !important;
-    }
-    
-    /* Remove any potential dark areas */
-    * {
-      box-sizing: border-box;
-    }
-    
-    /* Prevent page scroll when scrolling categories */
-    body.category-scrolling {
-      overflow: hidden;
-    }
-    
-    /* Fix all main elements */
-    .app-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: var(--bg-primary);
-    }
-    
-    .video-player-container {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      height: 200px;
-      z-index: 999;
-      background: var(--bg-primary);
-    }
-    
-    .navigation-container {
-      position: fixed;
-      top: 260px;
-      left: 0;
-      right: 0;
-      height: 50px;
-      z-index: 998;
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    /* Mobile responsive - Layout Otimizado */
-    @media (max-width: 480px) and (orientation: portrait) {
-      .channels-layout {
-        flex-direction: row;
-        height: calc(100vh - 310px);
-        max-height: calc(100vh - 310px);
-        margin: 0;
-        padding: 0;
-        gap: 0;
-        position: fixed;
-        top: 310px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-      
-      .channel-categories-sidebar {
-        width: 35%;
-        min-width: 150px;
-        max-width: 200px;
-        height: 100%;
-        max-height: 100%;
-        border-right: 1px solid var(--border-color);
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-      }
-      
-      .categories-header {
-        padding: 0.5rem;
-        font-size: 0.8rem;
-        text-align: center;
-        margin: 0;
-      }
-      
-      .categories-list {
-        display: flex;
-        flex-direction: column;
-        overflow-x: hidden;
-        overflow-y: auto;
-        padding: 0.25rem;
-        margin: 0;
-        height: calc(100% - 40px);
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-      
-      .categories-list::-webkit-scrollbar {
-        display: none;
-      }
-      
-      .category-item {
-        margin: 0 0 0.25rem 0;
-        font-size: 0.75rem;
-        padding: 0.5rem 0.25rem;
-        text-align: center;
-        word-wrap: break-word;
-        white-space: normal;
-      }
-      
-      .channel-content {
-        flex: 1;
-        height: 100%;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-      }
-      
-      .channel-content .content-list {
-        height: 100%;
-        overflow-y: auto;
-        margin: 0;
-        padding: 0.5rem;
-        -webkit-overflow-scrolling: touch;
-      }
-    }
-
     /* Error handling styles */
     .error-overlay {
       position: fixed;
@@ -2027,27 +1709,15 @@
         
         <!-- Channels Section -->
         <div id="channelsSection" class="content-section active">
-          <div class="channels-layout">
-            <!-- Channel Categories Sidebar -->
-            <div class="channel-categories-sidebar">
-              <div class="categories-header">
-                <h5><i class="fas fa-list me-2"></i>8Categorias</h5>
-              </div>
-              <div class="categories-list" id="channelCategoriesList">
-                <div class="text-center p-3">
-                  <div class="loading-spinner"></div>
-                  <p class="mt-2 mb-0 small">Carregando...</p>
-                </div>
-              </div>
+          <div class="tab-bar">
+            <div class="tab-nav" id="channelTabNav">
+              <!-- Categories will be loaded here -->
             </div>
-            <!-- Channel List -->
-            <div class="channel-content">
-              <div class="content-list" id="channelList">
-                <div class="text-center p-4">
-                  <div class="loading-spinner"></div>
-                  <p class="mt-2 mb-0">Carregando canais...</p>
-                </div>
-              </div>
+          </div>
+          <div class="content-list" id="channelList">
+            <div class="text-center p-4">
+              <div class="loading-spinner"></div>
+              <p class="mt-2 mb-0">Carregando canais...</p>
             </div>
           </div>
         </div>
@@ -2731,7 +2401,7 @@
           
           // Adicionar evento de sucesso no carregamento
           this.player.el().querySelector('video').addEventListener('loadeddata', () => {
-            console.log('Vídeo carregado com sucesso:', url);
+            console.log('Vídeo carregado com sucesso:', optimizedUrl);
           });
         }
       }
@@ -2998,19 +2668,19 @@
       }
 
       renderCategories() {
-        const categoriesList = document.getElementById('channelCategoriesList');
-        categoriesList.innerHTML = '';
+        const tabNav = document.getElementById('channelTabNav');
+        tabNav.innerHTML = '';
         
         this.categories.forEach((category, index) => {
           const button = document.createElement('button');
-          button.className = 'category-item';
+          button.className = 'tab-btn';
           if (index === 0) button.classList.add('active');
           button.textContent = category.category_name;
           button.dataset.categoryId = category.category_id;
           button.addEventListener('click', () => {
             this.selectCategory(category.category_id);
           });
-          categoriesList.appendChild(button);
+          tabNav.appendChild(button);
         });
 
         // Load first category by default
@@ -3065,7 +2735,7 @@
 
       async selectCategory(categoryId) {
         try {
-          document.querySelectorAll('#channelCategoriesList .category-item').forEach(btn => {
+          document.querySelectorAll('#channelTabNav .tab-btn').forEach(btn => {
             btn.classList.remove('active');
             if (btn.dataset.categoryId === categoryId) {
               btn.classList.add('active');
@@ -3432,19 +3102,6 @@
             this.currentMovie = null;
             this.currentSeries = null;
             this.currentEpisode = null;
-            
-            // Update playing indicator
-            document.querySelectorAll('.item-card').forEach(card => {
-              card.classList.remove('playing');
-            });
-            
-            // Find and mark current playing channel
-            document.querySelectorAll('.item-card').forEach(card => {
-              const title = card.querySelector('h6, .item-title');
-              if (title && title.textContent.trim() === channel.name) {
-                card.classList.add('playing');
-              }
-            });
             this.currentRadio = null;
 
             // Use advanced player with HLS support
@@ -4169,7 +3826,7 @@
             e.stopPropagation();
             
             // Confirmação antes de remover
-            if (confirm(`Tem certeza que deseja remover \"${favorite.name}\" dos favoritos?`)) {
+            if (confirm(`Tem certeza que deseja remover "${favorite.name}" dos favoritos?`)) {
               console.log('Removendo favorito via botão remove:', favorite.id);
               this.toggleFavorite(favorite.id);
             }
